@@ -2,15 +2,18 @@ import './signin.css'
 import {BsEnvelope, BsPersonCircle} from 'react-icons/bs'
 import {useLogin} from "../../hooks/useLogin";
 import {useState} from "react";
+import { useNavigate} from 'react-router-dom'
 
 const Signin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {error, login} = useLogin()
+    const nav = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
         login(email,password)
+        nav('/')
     }
 
   return (

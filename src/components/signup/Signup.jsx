@@ -3,16 +3,19 @@ import {BsEnvelope, BsPersonCircle} from 'react-icons/bs'
 import {AiOutlineUnlock} from 'react-icons/ai'
 import {useSignup} from "../../hooks/useSignup";
 import {useState} from "react";
+import { useNavigate} from 'react-router-dom'
 
 const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const {error, signup} = useSignup()
+    const nav = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
         signup(email,password,username)
+        nav('/')
     }
 
   return (
