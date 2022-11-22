@@ -1,0 +1,375 @@
+.sidebar{
+    width: 20%;
+    background-color: #1C232F;
+    height: 100vh;
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.navContainer{
+    display: flex;
+}
+.layout-container{
+    width: 100%;
+}
+.layout-handler{
+    width: 100%;
+    height: 120px;
+}
+.titleside{
+    font-size: 20px;
+    text-align: start;
+    background-color: #212b3bfd;
+    padding: 30px 0 30px 30px;
+    letter-spacing: 3px;
+}
+
+.primary{
+    color: darkviolet;
+    padding: 20px 0 0px 30px;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 10px 0 10px 0;
+}
+
+.list{
+    padding: 10px 0 10px 30px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.list:hover{
+    background-color: #212b3bfd;
+}
+
+.list span{
+    padding-left: 10px;
+}
+
+.icon{
+    font-size: 18px;
+}
+
+
+.main-content{
+    width: 100%;
+}
+
+.main-content .nav{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.main-content .nav .profile{
+    display: flex;
+    align-items: center;
+}
+
+.main-content .nav .profile .profile-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main-content .nav .profile .text{
+    padding-left: 10px;
+    color: rgb(53, 53, 53);
+}
+
+.main-content .nav .profile p{
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.main-content .nav .profile blockquote{
+    font-size: 12px;
+    color: rgb(134, 131, 131);
+    letter-spacing: 1px;
+}
+
+.main-content .path{
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.main-content .path p{
+    font-size: 13px;
+    color: gray;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.main-content .path p span{
+    padding: 0 10px;
+    font-size: 17px;
+}
+
+.main-box{
+    height: 800px;
+    padding: 20px 20px;
+    color: #4d4d4e;
+    background-color: #eaedf3;
+    font-size: 16px;
+}
+
+.real-box{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px;
+    padding-top: 0px;
+    background-color: white;
+}
+
+.box-title{
+    font-size: 15px;
+    color: #39393a;
+    font-weight: 500;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.form-box{
+    display: flex;
+    margin-top: 40px;
+}
+
+.form-input{
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid rgb(167, 161, 161);
+    width: 300px;
+}
+
+.ml{
+    margin-left: 30px;
+}
+
+.submit-btn{
+    background-color: #b80ee2;
+    color: white;
+    padding: 7px 20px;
+    outline: none;
+    border: none;
+}
+
+.export-btn{
+    padding: 7px 10px;
+    background: #125af525;
+    color: #0438a8;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.second-flex{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.select{
+    padding: 5px 10px;
+    outline: none;
+}
+
+.select-box label{
+    font-size: 14px;
+    margin-left: 5px;
+    color: rgb(70, 69, 69);
+}
+
+.second-flex input{
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid rgb(167, 161, 161);
+    width: 200px;
+}
+
+.thead{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tdata{
+    font-size: 13px;
+    color: gray;
+}
+
+.delete-btn{
+    background-color: crimson;
+    color: white;
+    padding: 8px 12px;
+    outline: none;
+    margin-left: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.edit-btn{
+    background-color: #48cae4;
+    color: white;
+    padding: 8px 12px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.table{
+    margin-top: 30px;
+}
+
+tbody td{
+    padding: 5px 0;
+}
+
+.except{
+    font-size: 13px;
+}
+
+.btn-box button{
+    width: 30px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    padding: 5px 0;
+    background-color: white;
+}
+
+.btn-box button.active{
+    background-color: rgb(194, 192, 192);
+}
+
+.con-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.flex{
+    display: flex;
+}
+
+.file-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110%;
+    margin-top: 30px;
+}
+
+.flex label{
+    padding-right: 20px;
+    font-size: 15px;
+}
+.hidden{
+    display: none;
+}
+
+.file-box{
+    background-color: white;
+    overflow: hidden;
+    font-size: 13px;
+    border-radius: 3px;
+    border: 1px solid rgb(184, 182, 182);
+    width: 400px;
+}
+
+.file-box p{
+    padding-left: 10px;
+    padding: 10px 10px;
+    padding-right: 30px;
+}
+
+.file-box button{
+    padding: 10px 10px;
+    border: none;
+    border-right: 1px solid rgb(184, 182, 182);
+
+}
+
+.select-box{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-box div select{
+    padding: 5px 10px;
+    outline: none;
+    background-color: white;
+    margin-left: 5px;
+    border: 1px solid rgb(184, 182, 182);
+    border-radius: 3px;
+    color: gray;
+}
+
+.select-input{
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid rgb(167, 161, 161);
+    width: 130px;
+    border-radius: 3px ;
+}
+
+.radio-box{
+    width: 400px;
+}
+
+.radio-file-box{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.radio-file-box label{
+    margin-left: 10px;
+}
+
+.radio-file-box input{
+    border-radius: 3px;
+}
+
+.btn-flex{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+.submit-box{
+    width: 400px;
+    margin-bottom: 30px;
+
+}
+
+.translate{
+    transform: translate(70%);
+}
+.error{
+    color: crimson;
+    width: 300px;
+}
