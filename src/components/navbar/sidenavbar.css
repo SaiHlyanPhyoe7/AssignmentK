@@ -1,4 +1,5 @@
 .sidebar{
+    position: relative;
     width: 20%;
     background-color: #1C232F;
     height: 100vh;
@@ -7,9 +8,13 @@
     top: 0;
     left: 0;
 }
+.toggler{
+    display: none;
+}
 .navContainer{
     display: flex;
 }
+
 .layout-container{
     width: 100%;
 }
@@ -143,6 +148,7 @@
 
 .form-box{
     display: flex;
+    flex-direction: row;
     margin-top: 40px;
 }
 
@@ -163,6 +169,8 @@
     padding: 7px 20px;
     outline: none;
     border: none;
+    width: 150px;
+    z-index: 5;
 }
 
 .export-btn{
@@ -198,7 +206,7 @@
     padding: 7px 10px;
     outline: none;
     border: 1px solid rgb(167, 161, 161);
-    width: 200px;
+    width: 250px;
 }
 
 .thead{
@@ -209,6 +217,9 @@
 .tdata{
     font-size: 13px;
     color: gray;
+}
+.responsive-table{
+    display: table-cell;
 }
 
 .delete-btn{
@@ -372,4 +383,125 @@ tbody td{
 .error{
     color: crimson;
     width: 300px;
+}
+.toggler_x{
+    display: none;
+  }
+@media (max-width: 1100px) {
+    .ml{
+        margin: 10px 0px;
+    }
+    .responsive-table{
+        background-color: #f00;
+        display: none;
+    }
+    .sidebar {
+        width: 40%;
+        z-index: 5;
+        position: absolute;
+    }
+    .sidebar_block{
+        display: block;
+    }
+    .sidebar_none{
+        display: none;
+    }
+    .form-box{
+        flex-direction: column;
+    }
+    .ml{
+        margin-left: 0;
+    }
+    .delete-btn{
+        padding: 4px 6px;
+        margin-left: 5px;
+        border-radius: 1px;
+    }
+    .toggler{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        margin: 15px;
+    }
+    .toggler_x{
+        display: block;
+        position: absolute;
+        left: 230px;
+        top: 20px;
+        margin: 15px;
+        z-index: 500;
+    }
+    .toggler-icons{
+        font-size: 40px;
+        color: rgb(0, 0, 0);
+    }
+    .toggler-icons-one{
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+    }
+  }
+  
+@media (max-width : 700px) {
+    .toggler_x{
+        left: 180px;
+        top: 20px;
+        margin: 15px;
+        z-index: 500;
+    }
+    .sidebar {
+        width: 70%;
+        position: absolute;
+    }
+    .responsive_h{
+        display: none;
+    }
+    .second-flex{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0px;
+    }
+    .responsive_br{
+        margin: 10px 0px;
+    }
+    .form-input{
+        width: 320px;
+    }
+    .file-flex{
+        flex-direction: column;
+    }
+    .select-box{
+        justify-content: center;
+        align-items: center;
+    }
+    .main-box{
+        height: 800px;
+        padding: 5px 5px;
+        font-size: 16px;
+    }
+    
+    .real-box{
+        padding: 5px;
+    }
+    .file-flex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        margin-top: 15px;
+    }
+    .radio-box{
+        width: 100px;
+        margin: 5px 0px;
+    }
+    .select-input{
+        margin-left: 5px;
+        padding: 5px 10px;
+        width: 95px;
+        border-radius: 3px ;
+    }
+}
+.navbar-toggler{
+    display: block;
+    width: 50%;
 }

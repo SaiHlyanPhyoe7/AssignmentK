@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {FaInfoCircle, FaUserCircle, FaUserFriends} from "react-icons/fa";
 import {MdOutlineCreate} from "react-icons/md";
 import {NavLink} from "react-router-dom";
-import {BiLogIn} from "react-icons/bi";
+import {BiLogIn, BiMenu} from "react-icons/bi";
+import {GiCrossedBones} from "react-icons/gi";
 import Signup from '../../signin/Signin';
 import {useLogout} from '../../../hooks/useLogout'
 
 
 const MainNavbar = ({handleAddNewCustomer,handleCustomer}) => {
+    const [toggleButton,setToggleButton] = useState(false)
     const {logout} = useLogout()
-
+    const handleToggler = ()=>{
+        setToggleButton(!toggleButton)
+        console.log("Toggler Click")
+    }
   return (
-    <div className='sidebar'>
+    <>
+    <div>
+        {
+            toggleButton ? 
+            <div onClick={handleToggler} className='toggler_x'>
+                <GiCrossedBones className='toggler-icons-one'/>
+            </div>
+            :
+            <div onClick={handleToggler} className='toggler'>
+                <BiMenu className='toggler-icons'/>
+            </div>
+        }
+    </div>
+    
+    <div className={`${toggleButton ? `sidebar_block` : `sidebar_none` } sidebar sidebar_block`}>
             <h1 className='titleside'>CRM App</h1>
             <ul>    
                 <li className='primary'>Navigation</li>
@@ -32,7 +51,9 @@ const MainNavbar = ({handleAddNewCustomer,handleCustomer}) => {
                 <li onClick={logout} className='list'><FaUserCircle className='icon'/><span>Log Out</span></li>
             </ul>
         </div>
+        </>
   )
 }
 
 export default MainNavbar
+

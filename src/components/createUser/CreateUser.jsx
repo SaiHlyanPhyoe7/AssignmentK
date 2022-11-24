@@ -1,5 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import CreateUserForm from './createUserForm/CreateUserForm';
+import { useNavigate } from 'react-router-dom';
+
 
 //firebase import
 import {db} from '../../firebase/config'
@@ -9,6 +11,10 @@ const CreateUser = () => {
     const formRef = useRef()
     const fileClick = useRef()
     const [img,setImg] = useState()
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    const nav = useNavigate()
+    const [radioValue,setRadioValue] = useState('')
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -24,11 +30,12 @@ const CreateUser = () => {
             nrc_state: formRef.current[9].value,
             nrc_national: formRef.current[10].value,
             nrc_numbers: formRef.current[11].value,
-            gender: formRef.current[12].value,
+            gender: radioValue,
+            time: today.toDateString(),
+            hour: today.getHours()
           })
-
+          nav('/')
     }
-
     const imageHandler = () => {
         const reader = new FileReader();
         reader.readAsDataURL(formRef.current[0].files[0])
@@ -37,11 +44,16 @@ const CreateUser = () => {
         }
     }
 
+    const radioValueHandler = (e)=>{
+        setRadioValue(e.target.value)
+    }
+    console.log(formRef)
+
     return (
         <div className='main-box'>
             <div className='real-box'>
                 <div className='con-form'>
-                    <CreateUserForm submitHandler={submitHandler} fileClick={fileClick} formRef={formRef} imageHandler={imageHandler}/>
+                    <CreateUserForm submitHandler={submitHandler} radioValueHandler={radioValueHandler} fileClick={fileClick} formRef={formRef} imageHandler={imageHandler}/>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const CreateUserForm = ({submitHandler,formRef,fileClick,imageHandler}) => {
+const CreateUserForm = ({submitHandler,formRef,fileClick,imageHandler,radioValueHandler}) => {
     const optionArray = [
         {
             id: 1,
@@ -78,8 +78,8 @@ const CreateUserForm = ({submitHandler,formRef,fileClick,imageHandler}) => {
                         <div className='file-flex'>
                             <label htmlFor="">Photo : </label>
                             <div className='file'>
-                                <input ref={fileClick} onChange={imageHandler} className='hidden' type="file" name="" id=""/>
-                                <div className='flex file-box'>
+                                <input required ref={fileClick} onChange={imageHandler} className='hidden' type="file" name="" id=""/>
+                                <div className='flex file-box form-input border-none'>
                                     <button onClick={()=>fileClick.current.click()}>Choose file</button>
                                     <p>No File Chosen</p>
                                 </div>
@@ -87,39 +87,39 @@ const CreateUserForm = ({submitHandler,formRef,fileClick,imageHandler}) => {
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="email">Email : </label>
-                            <input
+                            <input required
                                 type="email"
                                 className='file-box form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="password">Password : </label>
-                            <input
+                            <input required
                                 type="password"
                                 className='file-box form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="confirm_password">Confirm Password : </label>
-                            <input
+                            <input required
                                 type="password"
                                 className='file-box form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="name">Name : </label>
-                            <input
+                            <input required
                                 type="text"
                                 className='file-box form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="phnumber">Phone Number : </label>
-                            <input
+                            <input required
                                 type="number"
                                 className='file-box form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="birthday">Birthday : </label>
-                            <input
+                            <input required
                                 type="date"
-                                className='file-box form-input'/>
+                                className='file-box form-input form-input'/>
                         </div>
                         <div className='file-flex'>
                             <label htmlFor="nrc">NRC : </label>
@@ -154,25 +154,26 @@ const CreateUserForm = ({submitHandler,formRef,fileClick,imageHandler}) => {
                                         }
                                     </select>
                                 </div>
-                                <input
-                                    type="text"
-
-                                    className='select-input' placeholder='123456'/>
+                                <div>
+                                    <input required
+                                        type="text"
+                                        className='select-input' placeholder='123456'/>
+                                </div>
                             </div>
                         </div>
-                        <div className='file-flex'>
+                        <div className='file-flex flex-file'>
                             <label htmlFor="gender">Gender :</label>
                             <div className='radio-box'>
-                                <div className='radio-file-box'>
-                                    <input
+                                <div onChange={radioValueHandler} className='radio-file-box'>
+                                    <input required
                                         type="radio"
                                         name='gender'
                                         value='male'
                                         id="male"/>
                                     <label htmlFor="male">Male</label>
                                 </div>
-                                <div className='radio-file-box'>
-                                    <input
+                                <div onChange={radioValueHandler} className='radio-file-box'>
+                                    <input required
                                         type="radio"
                                         name='gender'
                                         value='female'
