@@ -4,7 +4,11 @@ import HandleManipulation from "../handleManipulation/HandleManipulation";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filteredInput, receive } from "../../../feature/slicers/InputSlicer";
+import {
+  filteredDate,
+  filteredInput,
+  receive,
+} from "../../../feature/slicers/InputSlicer";
 import Modal from "./Modal/Modal";
 
 const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
@@ -16,42 +20,73 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
     const ref = doc(db, "formData", id);
     await deleteDoc(ref);
   };
+  const [id, setId] = useState();
 
+  const modalFormValues = useSelector((state) => state);
   const handleEdit = async (id) => {
     setToggleModal(!toggleModal);
+    setId(id);
   };
+  // console.log(modalFormValues);
 
   const dispatch = useDispatch();
   const data = useSelector((state) => state.filterInput);
 
+  // console.log(data.change);
+
   const [inputValue, setInputValue] = useState("");
-  const searchHandler = () => {
+  const searchHandler = (e) => {
+    setInputValue(e.target.value);
     if (inputValue !== null) {
       dispatch(filteredInput(inputValue.toLowerCase()));
+    } else {
+      dispatch(receive(formValues));
     }
   };
 
-  // console.log("otg", data.org);
+  // date handle
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  console.log(startDate, endDate);
+  const start_date = new Date(startDate);
+  const end_date = new Date(endDate);
+  const start_date_seconds = start_date.getTime();
+  const end_date_seconds = end_date.getTime();
+
+  console.log(start_date_seconds, end_date_seconds);
+  const handleDateFilter = (e) => {
+    e.preventDefault();
+    dispatch(filteredDate({ start_date_seconds, end_date_seconds }));
+  };
+
+  console.log(data.change);
+
   return (
     <>
       <div className="main-box">
         {/* <div className="main_box_modal">
-          <Modal />
+          {toggleModal && <Modal id={id} handleEdit={handleEdit} />}
         </div> */}
         <div className="real-box">
           <h1 className="box-title">Customers</h1>
           <form className="form-box">
             <input
-              type="text"
+              onChange={(e) => setStartDate(e.target.value)}
+              type="date"
               className="form-input"
               placeholder="Start Date"
             />
             <input
-              type="text"
+              onChange={(e) => setEndDate(e.target.value)}
+              type="date"
               className="form-input ml"
               placeholder="End Date"
             />
-            <input type="submit" className="submit-btn ml" />
+            <input
+              type="submit"
+              className="submit-btn ml"
+              onClick={handleDateFilter}
+            />
           </form>
           <button className="export-btn">Export CSV</button>
           <div className="second-flex">
@@ -63,14 +98,11 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
             </div>
             <div>
               <input
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={searchHandler}
                 type="text"
                 className="responsive_br"
                 placeholder="Search..."
               />
-              <button onClick={searchHandler} className="search-btn">
-                Search Now
-              </button>
             </div>
           </div>
           <table className="table">

@@ -10,6 +10,7 @@ const inputSlicer = createSlice({
   initialState,
   reducers: {
     receive: (state, action) => {
+      console.log(action.payload);
       state.org = action.payload;
       state.change = action.payload;
     },
@@ -24,8 +25,21 @@ const inputSlicer = createSlice({
         ];
       }
     },
+    filteredDate: (state, action) => {
+      state.change = [
+        ...state.org.filter(
+          (i) =>
+            i.time_to_filter > action.payload.start_date_seconds &&
+            i.time_to_filter < action.payload.end_date_seconds
+        ),
+      ];
+    },
   },
 });
 
-export const { receive, filteredInput } = inputSlicer.actions;
+export const { receive, filteredInput, filteredDate } = inputSlicer.actions;
 export default inputSlicer.reducer;
+
+// if (startSecond>databaseSecone && endsecond<databaseSecond){
+//   data
+// }

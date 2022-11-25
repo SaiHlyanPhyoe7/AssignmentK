@@ -1,0 +1,11 @@
+.loadingFlex {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.loadingWidth {
+  height: 300px;
+  width: 300px;
+}

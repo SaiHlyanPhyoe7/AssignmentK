@@ -6,6 +6,7 @@ import Signup from "../signup/Signup";
 import UserTable from "../userTable/UserTable";
 import CreateUser from "../createUser/CreateUser";
 import Guard from "../Guard/Guard";
+import GuardSignUp from "../Guard/GuardSignUp";
 
 const RoutesList = () => {
   return (
@@ -38,7 +39,14 @@ const RoutesList = () => {
             />
           </Route>
           <Route path="signin" element={<Signin />} />
-          <Route path="signup" element={<Signup />} />
+          <Route
+            path="signup"
+            element={
+              <GuardSignUp>
+                <Signup />
+              </GuardSignUp>
+            }
+          />
         </Routes>
       </Router>
     </>
