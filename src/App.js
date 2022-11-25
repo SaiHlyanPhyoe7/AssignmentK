@@ -1,13 +1,15 @@
-import './App.css';
-import Signin from './components/signin/Signin'
-import RoutesList from './components/routes/RoutesList';
-
+import "./App.css";
+import RoutesList from "./components/routes/RoutesList";
+import { Provider } from "react-redux";
+import { store } from "./feature/store";
 
 function App() {
   return (
-    <div className="App">
-      <RoutesList/>      
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <RoutesList />
+      </div>
+    </Provider>
   );
 }
 

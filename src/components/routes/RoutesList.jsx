@@ -1,27 +1,48 @@
-import React from 'react'
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-import SideNavbar from '../navbar/SideNavbar';
-import Signin from "../signin/Signin"
-import Signup from '../signup/Signup';
-import UserTable from '../userTable/UserTable';
-import CreateUser from '../createUser/CreateUser';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SideNavbar from "../navbar/SideNavbar";
+import Signin from "../signin/Signin";
+import Signup from "../signup/Signup";
+import UserTable from "../userTable/UserTable";
+import CreateUser from "../createUser/CreateUser";
+import Guard from "../Guard/Guard";
 
 const RoutesList = () => {
   return (
     <>
-        <Router>
-            <Routes>
-                <Route path='/' element={<SideNavbar/>}>
-                  <Route index element={<UserTable/>}/>
-                  <Route path='create' element={<CreateUser/>}/>
-                </Route>
-                <Route path='signin' element={<Signin/>} />
-                <Route path='signup' element={<Signup/>} />
-            </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Guard>
+                <SideNavbar />
+              </Guard>
+            }
+          >
+            <Route
+              index
+              element={
+                <Guard>
+                  <UserTable />
+                </Guard>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <Guard>
+                  <CreateUser />
+                </Guard>
+              }
+            />
+          </Route>
+          <Route path="signin" element={<Signin />} />
+          <Route path="signup" element={<Signup />} />
+        </Routes>
+      </Router>
     </>
-  )
-}
+  );
+};
 
-export default RoutesList
+export default RoutesList;

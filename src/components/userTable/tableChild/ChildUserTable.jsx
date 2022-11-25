@@ -2,16 +2,42 @@ import { db } from "../../../firebase/config";
 import { doc, deleteDoc } from "firebase/firestore";
 import HandleManipulation from "../handleManipulation/HandleManipulation";
 import ReactPaginate from "react-paginate";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { filteredInput, receive } from "../../../feature/slicers/InputSlicer";
+import Modal from "./Modal/Modal";
 
 const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
+  useEffect(() => {
+    dispatch(receive(formValues));
+  }, [formValues]);
+  const [toggleModal, setToggleModal] = useState(false);
   const handleDelete = async (id) => {
     const ref = doc(db, "formData", id);
     await deleteDoc(ref);
   };
 
+  const handleEdit = async (id) => {
+    setToggleModal(!toggleModal);
+  };
+
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.filterInput);
+
+  const [inputValue, setInputValue] = useState("");
+  const searchHandler = () => {
+    if (inputValue !== null) {
+      dispatch(filteredInput(inputValue.toLowerCase()));
+    }
+  };
+
+  // console.log("otg", data.org);
   return (
     <>
       <div className="main-box">
+        {/* <div className="main_box_modal">
+          <Modal />
+        </div> */}
         <div className="real-box">
           <h1 className="box-title">Customers</h1>
           <form className="form-box">
@@ -35,11 +61,17 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
               </select>
               <label>entries per page</label>
             </div>
-            <input
-              type="text"
-              className="responsive_br"
-              placeholder="Search..."
-            />
+            <div>
+              <input
+                onChange={(e) => setInputValue(e.target.value)}
+                type="text"
+                className="responsive_br"
+                placeholder="Search..."
+              />
+              <button onClick={searchHandler} className="search-btn">
+                Search Now
+              </button>
+            </div>
           </div>
           <table className="table">
             <thead className="theader">
@@ -74,8 +106,8 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
               </tr>
             </thead>
             <tbody>
-              {formValues &&
-                formValues.map((data, index) => {
+              {data.change &&
+                data.change.map((data, index) => {
                   return (
                     <tr key={index} className="tdata">
                       <td className="responsive_h_p" width="100px">
@@ -107,6 +139,7 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
                       </td>
                       <HandleManipulation
                         data={data}
+                        handleEdit={handleEdit}
                         handleDelete={handleDelete}
                       />
                     </tr>
