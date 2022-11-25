@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./sidenavbar.css";
 
@@ -9,8 +9,16 @@ import {
   Outlet,
 } from "react-router-dom";
 import MainNavbar from "./navbranch/MainNavbar";
+import { useSelector } from "react-redux";
 
 const SideNavbar = () => {
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const account = JSON.parse(localStorage.getItem("account"));
+    setName(account.email);
+  }, []);
+  const spliceName = name.slice(0, -10);
+  console.log(name);
   const [customer, setCustomer] = useState(true);
   const [addNewCustomer, setAddNewCustomer] = useState(false);
   const handleCustomer = () => {
@@ -37,6 +45,7 @@ const SideNavbar = () => {
                 />
                 <div className="text">
                   <p>Joseph William</p>
+                  <span className="title_name">{spliceName}</span>
                   <blockquote>Administrator</blockquote>
                 </div>
               </div>

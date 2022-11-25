@@ -39,14 +39,7 @@ const RoutesList = () => {
             />
           </Route>
           <Route path="signin" element={<Signin />} />
-          <Route
-            path="signup"
-            element={
-              <GuardSignUp>
-                <Signup />
-              </GuardSignUp>
-            }
-          />
+          <Route path="signup" element={<Signup />} />
         </Routes>
       </Router>
     </>
