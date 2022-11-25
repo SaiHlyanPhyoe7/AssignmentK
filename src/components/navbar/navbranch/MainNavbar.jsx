@@ -21,7 +21,7 @@ const MainNavbar = ({ handleAddNewCustomer, handleCustomer }) => {
   };
 
   useEffect(() => {
-    console.log(success);
+    // console.log(success);
     if (success) {
       nav("/signin");
     }

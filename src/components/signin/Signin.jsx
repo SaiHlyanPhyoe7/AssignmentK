@@ -10,9 +10,9 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const { error, login, success, loading } = useLogin();
   const nav = useNavigate();
-  console.log(loading);
+  // console.log(loading);
   useEffect(() => {
-    console.log(success);
+    // console.log(success);
     if (success && !localStorage.getItem("account")) {
       localStorage.setItem("account", JSON.stringify({ email, password }));
     }

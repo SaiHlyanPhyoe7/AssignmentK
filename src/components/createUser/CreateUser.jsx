@@ -12,7 +12,7 @@ const CreateUser = () => {
   const [img, setImg] = useState();
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
-  console.log(timeElapsed);
+  // console.log(timeElapsed);
   const nav = useNavigate();
   const [radioValue, setRadioValue] = useState("");
 
@@ -31,8 +31,8 @@ const CreateUser = () => {
       nrc_national: formRef.current[10].value,
       nrc_numbers: formRef.current[11].value,
       gender: radioValue,
-      time: formRef.current[7].value,
-      hour: formRef.current[7].value,
+      time: today.toDateString(),
+      hour: today.getHours(),
       time_to_filter: new Date(formRef.current[7].value).getTime(),
     });
     nav("/");
@@ -48,7 +48,7 @@ const CreateUser = () => {
   const radioValueHandler = (e) => {
     setRadioValue(e.target.value);
   };
-  console.log(formRef);
+  // console.log(formRef);
 
   return (
     <div className="main-box">

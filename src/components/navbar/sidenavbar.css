@@ -337,7 +337,7 @@ tbody td {
 .select-box {
   width: 400px;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -529,8 +529,9 @@ tbody td {
   }
   .select-box {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
+    width: 325px;
   }
   .main-box {
     height: 800px;

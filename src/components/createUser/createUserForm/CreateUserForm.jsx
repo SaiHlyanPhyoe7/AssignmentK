@@ -78,7 +78,7 @@ const CreateUserForm = ({
   ];
 
   return (
-    <form onSubmit={submitHandler} ref={formRef} className="">
+    <form onSubmit={submitHandler} ref={formRef}>
       <div className="file-flex">
         <label htmlFor="">Photo : </label>
         <div className="file">
@@ -88,8 +88,6 @@ const CreateUserForm = ({
             onChange={imageHandler}
             className="hidden"
             type="file"
-            name=""
-            id=""
           />
           <div className="flex file-box form-input border-none">
             <button onClick={() => fileClick.current.click()}>
@@ -131,7 +129,7 @@ const CreateUserForm = ({
         <label htmlFor="nrc">NRC : </label>
         <div className="select-box">
           <div>
-            <select className="select-box-radius" name="" id="">
+            <select className="select-box-radius" id="">
               {optionArray.map((data, index) => {
                 return (
                   <option key={index} value={data.id}>
@@ -140,7 +138,7 @@ const CreateUserForm = ({
                 );
               })}
             </select>
-            <select className="select-box-radius" name="" id="">
+            <select className="select-box-radius" id="">
               {optionArray.map((data, index) => {
                 return (
                   <option key={index} value={data.state}>
@@ -149,7 +147,7 @@ const CreateUserForm = ({
                 );
               })}
             </select>
-            <select className="select-box-radius" name="" id="">
+            <select className="select-box-radius" id="">
               {nation.map((data, index) => {
                 return (
                   <option key={index} value={data.national}>

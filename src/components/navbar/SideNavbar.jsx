@@ -18,7 +18,7 @@ const SideNavbar = () => {
     setName(account.email);
   }, []);
   const spliceName = name.slice(0, -10);
-  console.log(name);
+  // console.log(name);
   const [customer, setCustomer] = useState(true);
   const [addNewCustomer, setAddNewCustomer] = useState(false);
   const handleCustomer = () => {

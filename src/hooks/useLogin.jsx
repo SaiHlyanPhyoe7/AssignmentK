@@ -15,7 +15,7 @@ export const useLogin = () => {
       .then((res) => {
         setLoading(false);
         setSuccess(true);
-        console.log("user logged in :", res.user);
+        // console.log("user logged in :", res.user);
       })
       .catch((err) => {
         setLoading(false);

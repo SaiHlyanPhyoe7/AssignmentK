@@ -10,7 +10,7 @@ const inputSlicer = createSlice({
   initialState,
   reducers: {
     receive: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.org = action.payload;
       state.change = action.payload;
     },

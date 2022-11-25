@@ -47,19 +47,19 @@ const ChildUserTable = ({ formValues, handlePageClick, pageCount, length }) => {
   // date handle
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  console.log(startDate, endDate);
+  // console.log(startDate, endDate);
   const start_date = new Date(startDate);
   const end_date = new Date(endDate);
   const start_date_seconds = start_date.getTime();
   const end_date_seconds = end_date.getTime();
 
-  console.log(start_date_seconds, end_date_seconds);
+  // console.log(start_date_seconds, end_date_seconds);
   const handleDateFilter = (e) => {
     e.preventDefault();
     dispatch(filteredDate({ start_date_seconds, end_date_seconds }));
   };
 
-  console.log(data.change);
+  // console.log(data.change);
 
   return (
     <>
